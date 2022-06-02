@@ -64,9 +64,6 @@ export class Branch {
     const initialBranchX = this.stem.linearFunction.returnX(
       p5.height - initialBranchY
     );
-    console.log(
-      this.p5.height - this.stem.linearFunction.returnY(initialBranchX)
-    );
     this.pointToStemFrom = {
       x: this.isLeftBranch ? initialBranchX : this.p5.width - initialBranchX,
       y: initialBranchY,
@@ -76,7 +73,6 @@ export class Branch {
     // } else {
     //   this.pointToStemFrom = undefined;
     // }
-    console.log(this.pointToStemFrom);
   }
   updateBranchLength = (height: number) => {
     height = Math.floor(height);

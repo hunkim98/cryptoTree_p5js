@@ -6,14 +6,23 @@ import reportWebVitals from "./reportWebVitals";
 import "@elastic/eui/dist/eui_theme_light.css";
 
 import { EuiProvider } from "@elastic/eui";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Navigation from "./components/Navigation/Navigation";
+import About from "./components/About";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
 );
 root.render(
-  <EuiProvider colorMode="light">
-    <App />
-  </EuiProvider>
+  <BrowserRouter>
+    <EuiProvider colorMode="light">
+      <Navigation />
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </EuiProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

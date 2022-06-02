@@ -54,7 +54,7 @@ export const calculateSlope = (array: Array<any>, interval: number) => {
     const average = temp_array.reduce((a: number, b: number) => a + b);
     mean_array.push(average);
   }
-  const reordered_mean_array = mean_array.slice().reverse();
+  const reordered_mean_array = mean_array.slice();
   const x_y_pair: DataPoint[] = [];
   const intervalSlopeTrend = [];
   let minShortSlope = Number.MAX_VALUE;
@@ -72,7 +72,6 @@ export const calculateSlope = (array: Array<any>, interval: number) => {
     }
   }
   // const intervalSlopes =
-  console.log(reordered_mean_array);
   const result = regression.linear(x_y_pair);
   return [result.equation[0], maxShortSlope, minShortSlope];
 };

@@ -11,12 +11,16 @@ const Navigation: React.FC = () => {
   return (
     <EuiHeader>
       <EuiHeaderSectionItem border="right">
-        <EuiHeaderLogo>Crypto Tree</EuiHeaderLogo>
+        <EuiHeaderLogo href="/" iconType={"console"}>
+          Crypto Tree
+        </EuiHeaderLogo>
       </EuiHeaderSectionItem>
 
       <EuiHeaderSectionItem>
         <EuiHeaderLinks aria-label="App navigation links example">
-          <EuiHeaderLink isActive>About</EuiHeaderLink>
+          <EuiHeaderLink href="/about" isActive>
+            About
+          </EuiHeaderLink>
         </EuiHeaderLinks>
       </EuiHeaderSectionItem>
     </EuiHeader>
