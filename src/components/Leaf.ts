@@ -32,7 +32,7 @@ export class Leaf {
 
   updateWidth(width: number) {
     width = Math.floor(width);
-    if (width < this.maximumWidth && width > this.minimumWidth) {
+    if (this.width <= this.maximumWidth && this.width >= this.minimumWidth) {
       if (width > this.width) {
         if (this.width < this.maximumWidth) {
           this.isDecreasing = false;

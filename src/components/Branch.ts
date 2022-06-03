@@ -76,7 +76,7 @@ export class Branch {
   }
   updateBranchLength = (height: number) => {
     height = Math.floor(height);
-    if (height < this.maxHeight && height > this.minHeight) {
+    if (this.height <= this.maxHeight && this.height >= this.minHeight) {
       if (height > this.height) {
         if (this.height < this.maxHeight) {
           this.height++;
