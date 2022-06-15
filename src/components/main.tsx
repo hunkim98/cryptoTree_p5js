@@ -160,17 +160,42 @@ const CryptoTree: React.FC<treeProps> = (props: treeProps) => {
     p5.stroke(0);
     p5.strokeWeight(2);
     p5.ellipseMode("center");
-    p5.circle(
-      p5.map(cryptoSlope, minSlope, maxSlope, 120, p5.width - 80),
-      40,
-      10
+    let slopeCircleLocation = p5.map(
+      cryptoSlope,
+      minSlope,
+      maxSlope,
+      120,
+      p5.width - 80
     );
-    p5.circle(
-      p5.map(currentPrice, recentSupport, recentResistance, 120, p5.width - 80),
-      100,
-      10
+    slopeCircleLocation =
+      slopeCircleLocation < minSlope
+        ? 120
+        : slopeCircleLocation > maxSlope
+        ? p5.width - 80
+        : slopeCircleLocation;
+    p5.circle(slopeCircleLocation, 40, 10);
+    let priceCircleLocation = p5.map(
+      currentPrice,
+      recentSupport,
+      recentResistance,
+      120,
+      p5.width - 80
     );
-    p5.circle(p5.map(volumeRatio, 70, 300, 120, p5.width - 80), 160, 10);
+    priceCircleLocation =
+      priceCircleLocation < recentSupport
+        ? 120
+        : priceCircleLocation > recentResistance
+        ? p5.width - 80
+        : priceCircleLocation;
+    p5.circle(priceCircleLocation, 100, 10);
+    let volumeCircleLocation = p5.map(volumeRatio, 70, 300, 120, p5.width - 80);
+    volumeCircleLocation =
+      volumeCircleLocation < 70
+        ? 120
+        : volumeCircleLocation > 300
+        ? p5.width - 80
+        : volumeCircleLocation;
+    p5.circle(volumeCircleLocation, 160, 10);
     p5.line(120, 40, p5.width - 80, 40);
     p5.line(120, 100, p5.width - 80, 100);
     p5.line(120, 160, p5.width - 80, 160);
